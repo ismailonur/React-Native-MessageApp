@@ -1,114 +1,460 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, { Component } from 'react'
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native'
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+const App = () => {
+  const [value, onChangeText] = React.useState();
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+      <View style={styles.container}>
+        <View style={styles.viewTop}>
+          <View style={styles.viewTop1}>
+            <View>
+              <TouchableOpacity style={styles.profilImageTouchable}>
+                <Image
+                  style={{ width: 35, height: 35 }}
+                  source={require('./src/images/reactnative.png')}
+                  resizeMode={'center'}
+                />
+              </TouchableOpacity>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
+            <View>
+              <Text style={styles.textAhlem}>
+                Ahlem
+            </Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
+            <View>
+              <TouchableOpacity>
+                <Image
+                  style={{ width: 40, height: 40 }}
+                  source={require('./src/images/reactnative.png')}
+                  resizeMode={'center'}
+                />
+              </TouchableOpacity>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
           </View>
-        </ScrollView>
-      </SafeAreaView>
+          <View style={styles.viewTextInput}>
+            <TextInput
+              inlineImageLeft='search_icon'
+              inlineImagePadding={50}
+              style={styles.textInput}
+              onChangeText={text => onChangeText(text)}
+              value={value}
+              placeholder={'Search'}
+              placeholderTextColor={'#fff'}
+            />
+          </View>
+        </View>
+
+        <View style={styles.viewMiddle}>
+          <View style={styles.users}>
+            <ScrollView>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.usersTouchable}>
+                <View style={styles.usersImageandText}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 500 }}
+                    source={require('./src/images/1.jpg')}
+                    resizeMode={'center'}
+                  />
+                  <View style={styles.usersTextsView}>
+                    <Text style={styles.username}>
+                      İsmail Onur
+                </Text>
+                    <Text style={styles.message}>
+                      I'm a software development
+                </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.time}>
+                    5 Min
+                </Text>
+                </View>
+              </TouchableOpacity>
+            </ScrollView>
+          </View>
+        </View>
+
+        <View style={styles.pencil}>
+            <TouchableOpacity>
+              <Image
+                style={styles.pencilImage}
+                source={require('./src/images/pencil.png')}
+                resizeMode={'cover'}
+              />
+            </TouchableOpacity>
+        </View>
+
+        <View style={styles.viewBottom}>
+          <View>
+            <TouchableOpacity>
+              <View style={{ alignItems: 'center' }}>
+                <Image
+                  style={{ width: 35, height: 35 }}
+                  source={require('./src/images/reactnative.png')}
+                  resizeMode={'center'}
+                />
+              </View>
+              <Text>Chats</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={{ alignItems: 'center' }}>
+                <Image
+                  style={{ width: 35, height: 35 }}
+                  source={require('./src/images/reactnative.png')}
+                  resizeMode={'center'}
+                />
+              </View>
+              <Text>Discover</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={{ alignItems: 'center' }}>
+                <Image
+                  style={{ width: 35, height: 35 }}
+                  source={require('./src/images/reactnative.png')}
+                  resizeMode={'center'}
+                />
+              </View>
+              <Text>Mode</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
     </>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    backgroundColor: '#65bd53',
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+
+  viewTop: {
+    flexDirection: 'column',
+
   },
-  body: {
-    backgroundColor: Colors.white,
+
+  viewTop1: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 30,
+    paddingVertical: 10
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+
+  profilImageTouchable: {
+    borderWidth: 2,
+    borderRadius: 100,
+    borderColor: '#fff'
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
+
+  textAhlem: {
+    color: '#fff',
+    fontSize: 36
   },
-  sectionDescription: {
-    marginTop: 8,
+
+  viewTextInput: {
+    alignItems: 'stretch',
+    paddingHorizontal: 20
+  },
+
+  textInput: {
+    height: 50,
+    borderRadius: 30,
+    backgroundColor: '#84ca75',
+    color: '#fff',
     fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+    paddingLeft: 20,
   },
-  highlight: {
-    fontWeight: '700',
+
+  viewMiddle: {
+    flex: 1,
+    marginTop: 20,
+    marginBottom: -150,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    backgroundColor: '#fcfcfc'
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+
+  users: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch'
   },
-});
+
+  usersTouchable: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: 30
+  },
+
+  usersTextsView: {
+    flexDirection: 'column'
+  },
+
+  usersImageandText: {
+    flexDirection: 'row'
+  },
+
+  username: {
+    paddingTop: 5,
+    paddingLeft: 10,
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+
+  message: {
+    paddingTop: 5,
+    paddingLeft: 10,
+    fontSize: 16
+  },
+
+  time: {
+    paddingRight: 25
+  },
+
+  viewBottom: {
+    flex: .13,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    backgroundColor: '#fff',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 12,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+
+    elevation: 24,
+  },
+
+  viewBottomElements: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+
+  pencil:{
+    alignItems: 'flex-end',
+    position: 'relative',
+    right: 40,
+    bottom: 10,
+  },
+
+  pencilImage:{
+    width: 60,
+    height: 60
+  }
+})
 
 export default App;
