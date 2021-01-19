@@ -1,30 +1,59 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native'
+import React, { useState } from 'react';
+import { 
+  Text, 
+  View, 
+  StyleSheet, 
+  TextInput, 
+  TouchableOpacity, 
+  Image, 
+  ScrollView, 
+  StatusBar 
+} from 'react-native'
 
 const App = () => {
+  // Textinput'dan alınan değişken
   const [value, onChangeText] = React.useState();
+
+  // Alttaki tab barda hangi menünün açıldığını kontrol etmek için kullanılan değişkenler
+  const [isShowingChats, setIsShowingChats] = useState(true);
+  const [isShowingDiscover, setIsShowingDiscover] = useState(false);
+  const [isShowingMode, setIsShowingMode] = useState(false);
 
   return (
     <>
       <View style={styles.container}>
+        {/* Bildirim çubuğunun rengini ayarlanması */}
+        <StatusBar backgroundColor={'#54ae41'} />
+        {/* Search kısmı ve üst tab bar START*/}
         <View style={styles.viewTop}>
           <View style={styles.viewTop1}>
+            {/* Sol Üstte Profil Fotoğrafı Butonu */}
             <View>
-              <TouchableOpacity style={styles.profilImageTouchable}>
+              <TouchableOpacity
+                style={styles.profilImageTouchable}
+                onPress={() => alert("Profil Fotoğrafı")}
+              >
                 <Image
-                  style={{ width: 35, height: 35 }}
-                  source={require('./src/images/reactnative.png')}
+                  style={{ width: 32, height: 32, borderRadius: 500 }}
+                  source={require('./src/images/1.jpg')}
                   resizeMode={'center'}
                 />
               </TouchableOpacity>
             </View>
+
+            {/* Ahlem Yazısı */}
             <View>
               <Text style={styles.textAhlem}>
                 Ahlem
-            </Text>
+              </Text>
             </View>
+
+            {/* Sağ Üstteki Buton */}
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                style={{ marginTop: 5 }}
+                onPress={() => alert("Sağ üsteki menü")}
+              >
                 <Image
                   style={{ width: 40, height: 40 }}
                   source={require('./src/images/reactnative.png')}
@@ -33,6 +62,8 @@ const App = () => {
               </TouchableOpacity>
             </View>
           </View>
+
+          {/* Search Çubuğu */}
           <View style={styles.viewTextInput}>
             <TextInput
               inlineImageLeft='search_icon'
@@ -45,7 +76,9 @@ const App = () => {
             />
           </View>
         </View>
+        {/* Search kısmı ve üst tab bar END*/}
 
+        {/* Kullanıcıların listendiği yer START*/}
         <View style={styles.viewMiddle}>
           <View style={styles.users}>
             <ScrollView>
@@ -68,7 +101,10 @@ const App = () => {
                 <View>
                   <Text style={styles.time}>
                     5 Min
-                </Text>
+                  </Text>
+                  <Text style={styles.numberOfMessage}>
+                    2
+                  </Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={styles.usersTouchable}>
@@ -91,236 +127,88 @@ const App = () => {
                   <Text style={styles.time}>
                     5 Min
                 </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
                   <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
+                    style={{ width: 25, height: 25, position: "absolute", marginTop: 25, marginLeft: 5 }}
+                    source={require('./src/images/tick.png')}
+                    resizeMode={'cover'}
                   />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
                 </View>
               </TouchableOpacity>
             </ScrollView>
           </View>
         </View>
+        {/* Kullanıcıların listendiği yer END*/}
 
+        {/* Pencil Button */}
         <View style={styles.pencil}>
-            <TouchableOpacity>
-              <Image
-                style={styles.pencilImage}
-                source={require('./src/images/pencil.png')}
-                resizeMode={'cover'}
-              />
-            </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => alert("Pencil clicked")}
+          >
+            <Image
+              style={styles.pencilImage}
+              source={require('./src/images/pencil.png')}
+              resizeMode={'cover'}
+            />
+          </TouchableOpacity>
         </View>
 
+        {/* En altta tab barın bulunduğu yer START*/}
         <View style={styles.viewBottom}>
+          {/* CHATS Button */}
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => { setIsShowingChats(true), setIsShowingDiscover(false), setIsShowingMode(false), alert("Chats clicked") }}
+            >
               <View style={{ alignItems: 'center' }}>
                 <Image
-                  style={{ width: 35, height: 35 }}
-                  source={require('./src/images/reactnative.png')}
-                  resizeMode={'center'}
+                  style={styles.tabBarImage}
+                  source={isShowingChats ? require('./src/images/messageActive.png') : require('./src/images/messageDeactive.png')}
+                  resizeMode={'cover'}
                 />
               </View>
-              <Text>Chats</Text>
+              <Text style={isShowingChats ? styles.tabBarTextsActive : styles.tabBarTextsDeactivated}>
+                CHATS
+              </Text>
             </TouchableOpacity>
           </View>
+
+          {/* DISCOVER Button */}
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => { setIsShowingChats(false), setIsShowingDiscover(true), setIsShowingMode(false), alert("Discover clicked") }}
+            >
               <View style={{ alignItems: 'center' }}>
                 <Image
-                  style={{ width: 35, height: 35 }}
-                  source={require('./src/images/reactnative.png')}
-                  resizeMode={'center'}
+                  style={styles.tabBarImage}
+                  source={isShowingDiscover ? require('./src/images/compassActive.png') : require('./src/images/compassDeactive.png')}
+                  resizeMode={'cover'}
                 />
               </View>
-              <Text>Discover</Text>
+              <Text style={isShowingDiscover ? styles.tabBarTextsActive : styles.tabBarTextsDeactivated}>
+                DISCOVER
+              </Text>
             </TouchableOpacity>
           </View>
+
+          {/* MODE Button */}
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => { setIsShowingChats(false), setIsShowingDiscover(false), setIsShowingMode(true), alert("Mode clicked") }}
+            >
               <View style={{ alignItems: 'center' }}>
                 <Image
-                  style={{ width: 35, height: 35 }}
-                  source={require('./src/images/reactnative.png')}
-                  resizeMode={'center'}
+                  style={styles.tabBarImage}
+                  source={require('./src/images/balloon.png')}
+                  resizeMode={'cover'}
                 />
               </View>
-              <Text>Mode</Text>
+              <Text style={isShowingMode ? styles.tabBarTextsActive : styles.tabBarTextsDeactivated}>
+                MODE
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
+        {/* En altta tab barın bulunduğu yer END*/}
       </View>
     </>
   )
@@ -347,12 +235,14 @@ const styles = StyleSheet.create({
   profilImageTouchable: {
     borderWidth: 2,
     borderRadius: 100,
+    marginTop: 5,
     borderColor: '#fff'
   },
 
   textAhlem: {
     color: '#fff',
-    fontSize: 36
+    fontSize: 36,
+    fontWeight: 'bold'
   },
 
   viewTextInput: {
@@ -401,6 +291,7 @@ const styles = StyleSheet.create({
   },
 
   username: {
+    color: '#3c3c3c',
     paddingTop: 5,
     paddingLeft: 10,
     fontSize: 18,
@@ -408,13 +299,26 @@ const styles = StyleSheet.create({
   },
 
   message: {
+    color: '#5d5d5d',
     paddingTop: 5,
     paddingLeft: 10,
     fontSize: 16
   },
 
   time: {
-    paddingRight: 25
+    paddingRight: 25,
+    color: '#626262'
+  },
+
+  numberOfMessage: {
+    color: '#fff',
+    marginTop: 5,
+    marginRight: 15,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    backgroundColor: '#65bd53',
+    alignSelf: 'center',
+    borderRadius: 100
   },
 
   viewBottom: {
@@ -444,17 +348,37 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 
-  pencil:{
+  pencil: {
     alignItems: 'flex-end',
     position: 'relative',
     right: 40,
     bottom: 10,
   },
 
-  pencilImage:{
+  pencilImage: {
     width: 60,
     height: 60
+  },
+
+  tabBarImage: {
+    width: 30, 
+    height: 30
+  },
+
+  tabBarTextsActive: {
+    color: '#545454',
+    paddingTop: 5,
+    fontSize: 14,
+    fontWeight: 'bold'
+  },
+
+  tabBarTextsDeactivated: {
+    color: '#c6c6c6',
+    paddingTop: 5,
+    fontSize: 14,
+    fontWeight: 'bold'
   }
+
 })
 
 export default App;
