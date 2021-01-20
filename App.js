@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  Text, 
-  View, 
-  StyleSheet, 
-  TextInput, 
-  TouchableOpacity, 
-  Image, 
-  ScrollView, 
-  StatusBar 
+import {
+  Text,
+  View,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  StatusBar,
+  FlatList
 } from 'react-native'
+
+import DATA from './src/data';
 
 const App = () => {
   // Textinput'dan alınan değişken
@@ -18,6 +20,51 @@ const App = () => {
   const [isShowingChats, setIsShowingChats] = useState(true);
   const [isShowingDiscover, setIsShowingDiscover] = useState(false);
   const [isShowingMode, setIsShowingMode] = useState(false);
+
+
+  const renderItem = ({ item }) => {
+    const rnd = Math.floor(Math.random() * 300) + 200;
+    const image = item.photo + rnd
+    return (
+      <TouchableOpacity 
+      style={styles.usersTouchable}
+      onPress={() => alert(item.username)}
+      >
+        <View style={styles.usersImageandText}>
+          <Image
+            style={{ width: 60, height: 60, borderRadius: 500 }}
+            source={{uri: image} }
+            resizeMode={'center'}
+          />
+          <View style={styles.usersTextsView}>
+            <Text style={styles.username}>
+              {item.username}
+            </Text>
+            <Text style={styles.message}>
+              {item.message}
+            </Text>
+          </View>
+        </View>
+        <View>
+          <Text style={styles.time}>
+            {item.time}
+          </Text>
+          {
+            item.numberMessage && <Text style={styles.numberOfMessage}>
+              {item.numberMessage}
+            </Text>
+          }
+          {
+            item.tick && <Image
+              style={{ width: 25, height: 25, position: "absolute", marginTop: 25, marginLeft: 5 }}
+              source={require('./src/images/tick.png')}
+              resizeMode={'cover'}
+            />
+          }
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <>
@@ -81,60 +128,12 @@ const App = () => {
         {/* Kullanıcıların listendiği yer START*/}
         <View style={styles.viewMiddle}>
           <View style={styles.users}>
-            <ScrollView>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                  </Text>
-                  <Text style={styles.numberOfMessage}>
-                    2
-                  </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.usersTouchable}>
-                <View style={styles.usersImageandText}>
-                  <Image
-                    style={{ width: 60, height: 60, borderRadius: 500 }}
-                    source={require('./src/images/1.jpg')}
-                    resizeMode={'center'}
-                  />
-                  <View style={styles.usersTextsView}>
-                    <Text style={styles.username}>
-                      İsmail Onur
-                </Text>
-                    <Text style={styles.message}>
-                      I'm a software development
-                </Text>
-                  </View>
-                </View>
-                <View>
-                  <Text style={styles.time}>
-                    5 Min
-                </Text>
-                  <Image
-                    style={{ width: 25, height: 25, position: "absolute", marginTop: 25, marginLeft: 5 }}
-                    source={require('./src/images/tick.png')}
-                    resizeMode={'cover'}
-                  />
-                </View>
-              </TouchableOpacity>
-            </ScrollView>
+            <FlatList
+              data={DATA}
+              renderItem={renderItem}
+              keyExtractor={(item, index) => index.toString()}
+            //extraData={selectedId}
+            />
           </View>
         </View>
         {/* Kullanıcıların listendiği yer END*/}
@@ -271,6 +270,7 @@ const styles = StyleSheet.create({
   users: {
     paddingTop: 20,
     paddingLeft: 20,
+    marginBottom: 80,
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'stretch'
@@ -306,6 +306,7 @@ const styles = StyleSheet.create({
   },
 
   time: {
+    fontSize: 12,
     paddingRight: 25,
     color: '#626262'
   },
@@ -361,7 +362,7 @@ const styles = StyleSheet.create({
   },
 
   tabBarImage: {
-    width: 30, 
+    width: 30,
     height: 30
   },
 
