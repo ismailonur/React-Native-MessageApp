@@ -5,7 +5,7 @@ const DATA = [
         time: '5 Min',
         numberMessage: '2',
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/200',
     },
     {
         username: 'Enes Can Güneş',
@@ -13,7 +13,7 @@ const DATA = [
         time: '2 Min',
         numberMessage: false,
         tick: true,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/201',
     },
     {
         username: 'Elmander Viking',
@@ -21,7 +21,7 @@ const DATA = [
         time: '15.12.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/202',
     },
     {
         username: 'Susan Santos',
@@ -29,7 +29,7 @@ const DATA = [
         time: '21.11.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/203',
     },
     {
         username: 'Lucas Stone',
@@ -37,7 +37,7 @@ const DATA = [
         time: '15.07.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/204',
     },
     {
         username: 'Alex Viking',
@@ -45,7 +45,7 @@ const DATA = [
         time: '15.12.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/205',
     },
     {
         username: 'Mary Santos',
@@ -53,7 +53,7 @@ const DATA = [
         time: '21.11.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/206',
     },
     {
         username: 'Gigi Stone',
@@ -61,7 +61,7 @@ const DATA = [
         time: '15.07.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/207',
     },
     {
         username: 'Elmander Viking',
@@ -69,7 +69,7 @@ const DATA = [
         time: '15.12.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/208',
     },
     {
         username: 'Susan Santos',
@@ -77,7 +77,7 @@ const DATA = [
         time: '21.11.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/209',
     },
     {
         username: 'Lucas Stone',
@@ -85,7 +85,7 @@ const DATA = [
         time: '15.07.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/210',
     },
     {
         username: 'Elmander Viking',
@@ -93,7 +93,7 @@ const DATA = [
         time: '15.12.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/211',
     },
     {
         username: 'Susan Santos',
@@ -101,7 +101,7 @@ const DATA = [
         time: '21.11.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/222',
     },
     {
         username: 'Lucas Stone',
@@ -109,7 +109,7 @@ const DATA = [
         time: '15.07.2020',
         numberMessage: false,
         tick: false,
-        photo: 'https://picsum.photos/',
+        photo: 'https://picsum.photos/213',
     },
 ];
 

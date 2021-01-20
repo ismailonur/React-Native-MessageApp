@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Text,
   View,
@@ -10,30 +10,45 @@ import {
   FlatList
 } from 'react-native'
 
+// Kullanıcı verilerinin çekilmesi
 import DATA from './src/data';
 
 const App = () => {
   // Textinput'dan alınan değişken
-  const [value, onChangeText] = React.useState();
+  const [value, onChangeText] = useState();
 
   // Alttaki tab barda hangi menünün açıldığını kontrol etmek için kullanılan değişkenler
   const [isShowingChats, setIsShowingChats] = useState(true);
   const [isShowingDiscover, setIsShowingDiscover] = useState(false);
   const [isShowingMode, setIsShowingMode] = useState(false);
+  const [userData, setUserData] = useState([]);
 
+  // componentDidmount
+  useEffect(() => {
+    setUserData(DATA);
+  }, [])
 
+  // Arama fonkisyonu
+  const search = (text) => {
+    const regex = new RegExp(text, 'gi');
+    const data = DATA;
+    const value = data.filter((item) => {
+      return regex.test(item.username);
+    });
+    setUserData(value);
+  }
+
+  // FlatList'ten gelen verinin gösterilmesi
   const renderItem = ({ item }) => {
-    const rnd = Math.floor(Math.random() * 300) + 200;
-    const image = item.photo + rnd
     return (
-      <TouchableOpacity 
-      style={styles.usersTouchable}
-      onPress={() => alert(item.username)}
+      <TouchableOpacity
+        style={styles.usersTouchable}
+        onPress={() => alert(item.username)}
       >
         <View style={styles.usersImageandText}>
           <Image
             style={{ width: 60, height: 60, borderRadius: 500 }}
-            source={{uri: image} }
+            source={{ uri: item.photo }}
             resizeMode={'center'}
           />
           <View style={styles.usersTextsView}>
@@ -50,11 +65,13 @@ const App = () => {
             {item.time}
           </Text>
           {
+            // Yeni mesaj var ise sayısını göster. Yeni mesaj yok ise hiç gösterme
             item.numberMessage && <Text style={styles.numberOfMessage}>
               {item.numberMessage}
             </Text>
           }
           {
+            // Tick işareti varsa göster yoksa gösterme
             item.tick && <Image
               style={{ width: 25, height: 25, position: "absolute", marginTop: 25, marginLeft: 5 }}
               source={require('./src/images/tick.png')}
@@ -116,7 +133,7 @@ const App = () => {
               inlineImageLeft='search_icon'
               inlineImagePadding={50}
               style={styles.textInput}
-              onChangeText={text => onChangeText(text)}
+              onChangeText={text => search(text)}
               value={value}
               placeholder={'Search'}
               placeholderTextColor={'#fff'}
@@ -129,10 +146,9 @@ const App = () => {
         <View style={styles.viewMiddle}>
           <View style={styles.users}>
             <FlatList
-              data={DATA}
+              data={userData}
               renderItem={renderItem}
               keyExtractor={(item, index) => index.toString()}
-            //extraData={selectedId}
             />
           </View>
         </View>
@@ -221,7 +237,6 @@ const styles = StyleSheet.create({
 
   viewTop: {
     flexDirection: 'column',
-
   },
 
   viewTop1: {
